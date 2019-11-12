@@ -4,7 +4,7 @@
   hosts: all
   tasks:
   - name: Install MongoDB
-    apt: 
+    yum: 
       name: mongodb
       state: present
 
