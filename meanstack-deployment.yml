@@ -1,11 +1,13 @@
 ---
 
-- name: Create a sandbox instance
+- name: Deploy Mean Stack
   hosts: all
   tasks:
   - name: Install MongoDB
-    state: present
-   
+    apt: 
+      name: mongodb
+      state: present
+
   - name: Configure MongoDB
     copy:
       src: mongodb.conf
