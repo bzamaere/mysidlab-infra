@@ -4,6 +4,14 @@
   hosts: all
   become: true
   tasks:
+  
+  - name: Configure MongoDB
+    copy:
+      src: mongodb.repo
+      dest: /etc/yum.repos.d/mongodb.repo
+      owner: root
+      group: root
+      mode: 0644
   - name: Install MongoDB
     yum: 
       name: mongodb
