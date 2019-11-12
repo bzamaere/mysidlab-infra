@@ -2,6 +2,7 @@
 
 - name: Deploy Mean Stack
   hosts: all
+  become: true
   tasks:
   - name: Install MongoDB
     yum: 
