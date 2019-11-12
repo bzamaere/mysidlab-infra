@@ -3,11 +3,13 @@
 - name: Deploy Mean Stack
   hosts: all
   become: true
+  vars:
+    folder: "roles/my_awesome_role/files"
   tasks:
   
   - name: Configure MongoDB
     copy:
-      src: mongodb.repo
+      src: "{{ folder }}/mongodb.repo"
       dest: /etc/yum.repos.d/mongodb.repo
       owner: root
       group: root
@@ -19,7 +21,7 @@
 
   - name: Configure MongoDB
     copy:
-      src: mongodb.conf
+      src: "{{ folder }}/mongodb.conf"
       dest: /etc/mongodb.conf
       owner: root
       group: root
