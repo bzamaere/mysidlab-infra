@@ -26,6 +26,8 @@
       owner: root
       group: root
       mode: 0644
-    notify:
-    - restart mongodb
-
+  - name: Restart mongodb...
+    service:
+      name: httpd 
+      state: restarted
+    
