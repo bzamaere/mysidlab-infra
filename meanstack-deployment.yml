@@ -1,0 +1,18 @@
+---
+
+- name: Create a sandbox instance
+  hosts: all
+  tasks:
+  - name: Install MongoDB
+    state: present
+   
+  - name: Configure MongoDB
+    copy:
+      src: mongodb.conf
+      dest: /etc/mongodb.conf
+      owner: root
+      group: root
+      mode: 0644
+    notify:
+    - restart mongodb
+
